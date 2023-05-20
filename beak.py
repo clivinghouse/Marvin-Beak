@@ -10,7 +10,8 @@ Usage:
 Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
-
+import chat
+chatai= chat
 import logging
 from typing import Optional, Tuple
 
@@ -162,6 +163,7 @@ async def start_private_chat(update: Update, context: ContextTypes.DEFAULT_TYPE)
     await update.effective_message.reply_text(
         f"Welcome {user_name}. Use /show_chats to see what chats I'm in."
     )
+    await update.message.reply_text(chatai.resp(update.message.text)) 
 
 
 def main() -> None:
